@@ -244,6 +244,21 @@
             gap: 14px;
         }
 
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 28px 18px;
+            border: 1px dashed rgba(158, 177, 196, 0.24);
+            border-radius: 16px;
+            color: var(--muted);
+            text-align: center;
+        }
+
+        .empty-state strong {
+            color: var(--text);
+        }
+
         .task-item {
             display: flex;
             align-items: flex-start;
@@ -451,6 +466,12 @@
                             </div>
                         </article>
                     </c:forEach>
+                    <c:if test="${empty tasks}">
+                        <div class="empty-state">
+                            <strong>Your board is clear.</strong>
+                            <span>Create a task to start shaping the next workflow.</span>
+                        </div>
+                    </c:if>
                 </div>
             </section>
 
